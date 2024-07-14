@@ -1,0 +1,20 @@
+@import "primeicons/primeicons.css";
+
+@font-face {
+    font-family: 'HellsRider';
+    src: url('assets/fonts/hells-rider-font/HellsRider-Eg8e.ttf');
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('assets/fonts/rajdhani/rajdhani-bold.ttf');
+}
+
+html{
+    width:100vw;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+}

@@ -1,0 +1,150 @@
+h1, p{
+    font-family: 'Rajdhani';
+}
+
+#navbar{
+    background-color: rgb(25, 24, 23);
+    // i had to subtract all elements' margins from the navbar in order
+    // to prevent overflow on the X axis, there must have been a more 
+    // elegant way but yolo
+    // width: calc(100% - 15px);
+    // width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+
+
+    #logo{     
+        width:  150px;
+        height: 150px;
+        // margin-right: 10px;
+        }
+    
+    #bar-name{
+        color: rgb(255, 220, 131);
+        // margin-left: 10px;
+        white-space: nowrap;
+    }
+
+// This one will be active on desktop - generous widths
+////////////////////////////////////////////////////////////
+    #horizontal-links{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        // width: 20%;
+
+        p{
+            font-size: 22px;
+            color: white;
+        }
+    
+        p:hover{
+            color: rgb(255, 220, 131);
+            cursor: pointer;
+        }
+    }
+
+    //these ones will be active on mobile - small widths
+////////////////////////////////////////////////////////////
+    #stretched-space{
+        flex-grow: 1;
+    }
+
+    ::ng-deep .p-button{
+        visibility: hidden;
+        position: absolute;
+        display: inline-block;
+        background-color: transparent;
+        border: 0;
+        // margin-right: 25px;
+
+        i{
+            // color: rgb(255, 220, 131);
+            color: rgb(198, 198, 198);
+            font-size: 40px;
+        }
+
+        i:hover{
+           color: rgb(237, 237, 237);
+           font-size: 42px;
+           transform: translateX(1px);
+           transform: translateY(-1px);
+        }
+    }
+}
+::ng-deep .p-sidebar{
+    position: absolute;
+    top:180px;
+    background-color: rgb(25, 24, 23);
+    padding: 40px;
+    width: 30vw;
+    height: calc(100% - 260px);
+
+    #vertical-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 50%;
+
+        p{
+            font-size: 22px;
+            color: white;
+        }
+    
+        p:hover{
+            color: rgb(255, 220, 131);
+            cursor: pointer;
+        }
+    }
+
+
+    // p{
+    //     font-family: 'Rajdhani';
+    //     font-size: 22px;
+    // }
+
+    // p:hover{
+    //     color: rgb(255, 220, 131);
+    //     cursor: pointer;
+    // }
+}
+
+@media only screen and (max-width: 600px) {
+    #navbar{
+        #logo{
+            width:  100px;
+            height: 100px;
+        }
+    }
+
+    #sidebar-links{
+        height: 70%;
+    }
+
+    ::ng-deep{
+        .p-sidebar{
+            position: absolute;
+            top:130px;
+            background-color: rgb(25, 24, 23);
+            padding: 40px;
+            height: calc(100% - 210px);
+        }
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+    #horizontal-links{
+        // for some reason i can't do display; none so imma just...
+        visibility: hidden;
+        position: absolute;
+    }
+
+    ::ng-deep .p-button{
+        visibility: visible !important;
+        position: static !important;
+    }
+  }

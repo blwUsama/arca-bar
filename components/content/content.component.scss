@@ -1,0 +1,39 @@
+    // width: ;
+    // background-color: red;
+    // border: 1px solid red;
+    // transform: translateX(-32px);
+
+    #hero-image{
+        width: 100%;
+        position: relative;
+        
+        #cool-ahh-pic{
+            width: 100%;
+        }
+    
+        #logo{
+            position: absolute;
+            top: 2%;
+            right: 5%;
+            width: 25vw;
+        }
+    }
+    
+    @media only screen and (max-width: 900px) {
+        #hero-image{
+            #logo{
+                width: 35vw;
+            }
+        }    
+    }
+
+    @media only screen and (max-width: 600px) {
+        #hero-image{
+            #logo{
+                width: 50vw;
+                right: 25%;
+                top: 3%;
+            }
+        }    
+        }
+        
