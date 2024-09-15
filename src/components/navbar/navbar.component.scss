@@ -1,0 +1,215 @@
+h1,
+p {
+  font-family: "Rajdhani";
+}
+
+#navbar {
+  background-color: rgb(25, 24, 23);
+  // i had to subtract all elements' margins from the navbar in order
+  // to prevent overflow on the X axis, there must have been a more
+  // elegant way but yolo
+  // width: calc(100% - 15px);
+  // width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  // position: absolute;
+  top: 0;
+  z-index: 1200;
+  width: 100%;
+
+  #logo-and-name {
+    display: flex;
+    align-items: center;
+    #logo {
+      width: 150px;
+      height: 150px;
+      // margin-right: 10px;
+    }
+
+    #bar-name {
+      color: rgb(255, 220, 131);
+      // margin-left: 10px;
+      white-space: nowrap;
+    }
+  }
+
+  ::ng-deep {
+    .p-inputswitch {
+      margin-right: 12px;
+      transform: scale(1.5);
+      .p-inputswitch-slider {
+        background-image: url("../../assets//images/uk-flag.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+      }
+      .p-inputswitch-slider::before {
+        background-color: rgb(255, 220, 131);
+        border: 1px solid rgb(0, 0, 0);
+        height: 20px;
+        width: 20px;
+      }
+    }
+    .p-inputswitch-checked {
+      .p-inputswitch-slider {
+        background-image: url("../../assets/images/romania-flag.png");
+      }
+    }
+    .p-focus {
+      border: 0;
+      box-shadow: none;
+    }
+  }
+
+  // This one will be active on desktop - generous widths
+  ////////////////////////////////////////////////////////////
+  #horizontal-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 500px;
+    gap: 40px;
+    padding-right: 4%;
+    p {
+      font-size: 22px;
+      color: white;
+      white-space: nowrap;
+    }
+
+    p:hover {
+      color: rgb(255, 220, 131);
+      cursor: pointer;
+    }
+  }
+
+  //these ones will be active on mobile - small widths
+  ////////////////////////////////////////////////////////////
+  #stretched-space {
+    flex-grow: 1;
+  }
+
+  ::ng-deep .p-button {
+    visibility: hidden;
+    position: absolute;
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    // margin-right: 25px;
+
+    i {
+      // color: rgb(255, 220, 131);
+      color: rgb(198, 198, 198);
+      font-size: 40px;
+    }
+
+    i:hover {
+      color: rgb(237, 237, 237);
+      font-size: 42px;
+      transform: translateX(1px);
+      transform: translateY(-1px);
+    }
+  }
+}
+::ng-deep .p-sidebar {
+  position: fixed;
+  top: 210px;
+  background-color: #0f0e0e;
+  padding: 40px;
+  width: 60vw;
+  height: calc(100% - 210px);
+
+  #vertical-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+
+    p {
+      font-size: 22px;
+      color: white;
+    }
+
+    p:hover {
+      color: rgb(255, 220, 131);
+      cursor: pointer;
+    }
+  }
+
+  // p{
+  //     font-family: 'Rajdhani';
+  //     font-size: 22px;
+  // }
+
+  // p:hover{
+  //     color: rgb(255, 220, 131);
+  //     cursor: pointer;
+  // }
+}
+
+@media only screen and (max-width: 600px) {
+  #navbar {
+    #logo {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  #sidebar-links {
+    height: 70%;
+  }
+
+  ::ng-deep {
+    .p-sidebar {
+      position: fixed;
+      top: 130px;
+      background-color: #0f0e0e;
+      padding: 40px;
+      height: calc(100% - 210px);
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #horizontal-links {
+    // for some reason i can't do display; none so imma just...
+    visibility: hidden;
+    position: absolute;
+  }
+
+  ::ng-deep .p-button {
+    visibility: visible !important;
+    position: static !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #logo {
+    width: 75px !important;
+    height: 75px !important;
+  }
+
+  #bar-name {
+    font-size: 25px !important;
+  }
+
+  ::ng-deep .p-button {
+    padding-left: 0px !important;
+  }
+
+  ::ng-deep {
+    .p-inputswitch {
+      transform: scale(1) !important;
+    }
+
+    .p-sidebar {
+      position: fixed;
+      top: 135px;
+      height: calc(100% - 135px);
+    }
+  }
+}

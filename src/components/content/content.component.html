@@ -1,0 +1,134 @@
+<div id="content">
+  <div id="hero-image-section">
+    <picture>
+      <source
+        srcset="assets/images/arca-hero-tall.jpg"
+        media="(max-width: 600px)"
+      />
+      <source
+        srcset="assets/images/arca-hero-desktop.jpg"
+        media="(min-width: 900px)"
+      />
+      <source
+        srcset="assets/images/arca-hero-mobile.jpg"
+        media="(max-width: 900px)"
+      />
+      <img
+        id="cool-ahh-pic"
+        src="assets/images/arca-hero-desktop.jpg"
+        alt="Hero Image"
+      />
+    </picture>
+    <img id="logo" src="assets/images/arca-logo-transparent2.png" />
+  </div>
+  <div id="about-us-section">
+    <p-card>
+      <div id="carousel-container">
+        <p-carousel
+          [value]="carouselImages"
+          [numVisible]="1"
+          [circular]="true"
+          [showIndicators]="false"
+          [autoplayInterval]="3000"
+        >
+          <ng-template let-photo pTemplate="item">
+            <img id="carousel-image" src="{{ photo.source }}" />
+          </ng-template>
+        </p-carousel>
+      </div>
+      <div id="text">
+        <h2>{{ "aboutUsTitle" | translate }}</h2>
+        <div id="two-lines"></div>
+        <p>
+          {{ "aboutUsText" | translate }}
+        </p>
+      </div>
+    </p-card>
+  </div>
+  <div id="menu-section">
+    <!-- <img id="leo" src="../../assets//images/arca7.png" /> -->
+    <picture id="leo-picture">
+      <source
+        srcset="../../assets//images/arca7-tall.png"
+        media="(max-width: 830px)"
+      />
+      <img
+        id="leo-image"
+        src="../../assets//images/arca7.png"
+        alt="Hero Image"
+      />
+    </picture>
+    <div id="menu-button-section">
+      <!-- <button><img src="../../assets/images/beer-icon.png" /></button> -->
+      <h2>{{ "menu" | translate }}</h2>
+      <div id="icon-box">
+        <div id="call-to-action">
+          <p>{{ "clickMe" | translate }}</p>
+        </div>
+        <a href="../../assets/Meniu 2 arca.pdf" target="_blank"
+          ><img id="icon" src="../../assets/images/beer-icon2.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="gallery-section">
+    <div
+      id="tightly-packed-images"
+      *ngFor="let image of galleryImages; let index = index"
+      class="gallery-item"
+    >
+      <img [src]="image.source" (click)="showImage(index)" />
+    </div>
+  </div>
+  <div id="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2852.212998207762!2d28.69938297688966!3d44.36721607107728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ba59ddc56e95bd%3A0xd6891f8caa5bbadf!2sArca%20bar%20corbu!5e0!3m2!1sen!2sro!4v1722077315204!5m2!1sen!2sro"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <div id="footer">
+    <div id="social-links">
+      <a href="https://www.instagram.com/arca_bar/?hl=en" target="_blank"
+        ><i class="fa-brands fa-square-instagram"></i
+      ></a>
+      <a href="https://www.facebook.com/ArcaDinVama" target="_blank"
+        ><i class="fa-brands fa-square-facebook"></i
+      ></a>
+    </div>
+    <div id="contacts">
+      <div class="contact-info">
+        <i class="fa-solid fa-location-dot"></i>
+        <p>{{ "address" | translate }}</p>
+      </div>
+      <div class="contact-info">
+        <i class="fa-solid fa-envelope"></i>
+        <p>somethingemail.com</p>
+      </div>
+      <div class="contact-info">
+        <i class="fa-solid fa-phone"></i>
+        <p>0739 432 252</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedImage">
+  <p-dialog [(visible)]="isVisible" [modal]="true" [draggable]="false">
+    <img
+      class="modal-image"
+      [src]="selectedImage.source"
+      [ngClass]="selectedImage.isTall ? 'tall-image' : 'long-image'"
+    />
+    <p-button
+      icon="pi pi-times"
+      [rounded]="true"
+      [raised]="true"
+      [outlined]="true"
+      (onClick)="hideImage()"
+    ></p-button>
+  </p-dialog>
+</div>
