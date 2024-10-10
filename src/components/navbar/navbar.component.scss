@@ -9,10 +9,10 @@ p {
   // to prevent overflow on the X axis, there must have been a more
   // elegant way but yolo
   // width: calc(100% - 15px);
-  // width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 30px;
   // position: absolute;
   top: 0;
@@ -35,83 +35,75 @@ p {
     }
   }
 
-  ::ng-deep {
-    .p-inputswitch {
-      margin-right: 12px;
-      transform: scale(1.5);
-      .p-inputswitch-slider {
-        background-image: url("../../assets//images/uk-flag.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: start;
-        justify-content: center;
-      }
-      .p-inputswitch-slider::before {
-        background-color: rgb(255, 220, 131);
-        border: 1px solid rgb(0, 0, 0);
-        height: 20px;
-        width: 20px;
-      }
-    }
-    .p-inputswitch-checked {
-      .p-inputswitch-slider {
-        background-image: url("../../assets/images/romania-flag.png");
-      }
-    }
-    .p-focus {
-      border: 0;
-      box-shadow: none;
-    }
-  }
-
-  // This one will be active on desktop - generous widths
-  ////////////////////////////////////////////////////////////
-  #horizontal-links {
+  #switch-and-links {
     display: flex;
-    flex-direction: row;
-    justify-content: end;
     align-items: center;
-    width: 500px;
-    gap: 40px;
-    padding-right: 4%;
-    p {
-      font-size: 22px;
-      color: white;
-      white-space: nowrap;
+    ::ng-deep {
+      .p-inputswitch {
+        margin-right: 12px;
+        transform: scale(1.5);
+        .p-inputswitch-slider {
+          background-image: url("../../assets//images/uk-flag.png");
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: start;
+          justify-content: center;
+        }
+        .p-inputswitch-slider::before {
+          background-color: rgb(255, 220, 131);
+          border: 1px solid rgb(0, 0, 0);
+          height: 20px;
+          width: 20px;
+        }
+      }
+      .p-inputswitch-checked {
+        .p-inputswitch-slider {
+          background-image: url("../../assets/images/romania-flag.png");
+        }
+      }
+      .p-focus {
+        border: 0;
+        box-shadow: none;
+      }
     }
+    #horizontal-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      align-items: center;
+      width: fit-content;
+      gap: 40px;
+      padding-right: 4%;
+      padding-left: 20px;
+      p {
+        font-size: 22px;
+        color: white;
+        white-space: nowrap;
+      }
 
-    p:hover {
-      color: rgb(255, 220, 131);
-      cursor: pointer;
+      p:hover {
+        color: rgb(255, 220, 131);
+        cursor: pointer;
+      }
     }
-  }
+    ::ng-deep .p-button {
+      display: none;
+      background-color: transparent;
+      border: 0;
 
-  //these ones will be active on mobile - small widths
-  ////////////////////////////////////////////////////////////
-  #stretched-space {
-    flex-grow: 1;
-  }
+      i {
+        // color: rgb(255, 220, 131);
+        color: rgb(198, 198, 198);
+        font-size: 40px;
+      }
 
-  ::ng-deep .p-button {
-    visibility: hidden;
-    position: absolute;
-    display: inline-block;
-    background-color: transparent;
-    border: 0;
-    // margin-right: 25px;
-
-    i {
-      // color: rgb(255, 220, 131);
-      color: rgb(198, 198, 198);
-      font-size: 40px;
-    }
-
-    i:hover {
-      color: rgb(237, 237, 237);
-      font-size: 42px;
-      transform: translateX(1px);
-      transform: translateY(-1px);
+      i:hover {
+        color: rgb(237, 237, 237);
+        font-size: 42px;
+        transform: translateX(1px);
+        transform: translateY(-1px);
+      }
     }
   }
 }
@@ -140,16 +132,6 @@ p {
       cursor: pointer;
     }
   }
-
-  // p{
-  //     font-family: 'Rajdhani';
-  //     font-size: 22px;
-  // }
-
-  // p:hover{
-  //     color: rgb(255, 220, 131);
-  //     cursor: pointer;
-  // }
 }
 
 @media only screen and (max-width: 600px) {
@@ -176,15 +158,13 @@ p {
 }
 
 @media only screen and (max-width: 950px) {
-  #horizontal-links {
-    // for some reason i can't do display; none so imma just...
-    visibility: hidden;
-    position: absolute;
-  }
-
-  ::ng-deep .p-button {
-    visibility: visible !important;
-    position: static !important;
+  #switch-and-links {
+    #horizontal-links {
+      display: none !important;
+    }
+    ::ng-deep .p-button {
+      display: inline-block !important;
+    }
   }
 }
 @media only screen and (max-width: 500px) {

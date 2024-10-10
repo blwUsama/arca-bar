@@ -3,35 +3,36 @@
     <img id="logo" src="/assets/images/arca-logo-transparent.png" />
     <h1 id="bar-name">ARCA BAR</h1>
   </div>
-  <div id="stretched-space"></div>
 
-  <p-inputSwitch
-    [(ngModel)]="isRomanian"
-    (onChange)="toggleLanguage()"
-  ></p-inputSwitch>
-  <div id="horizontal-links">
-    <p>
-      <a (click)="scrollToSection('hero-image-section')">
-        {{ "home" | translate }}
-      </a>
-    </p>
-    <p>
-      <a (click)="scrollToSection('about-us-section')">
-        {{ "aboutUs" | translate }}
-      </a>
-    </p>
-    <p>
-      <a (click)="scrollToSection('menu-section')">
-        {{ "menu" | translate }}
-      </a>
-    </p>
-    <p>
-      <a (click)="scrollToSection('gallery-section')">
-        {{ "gallery" | translate }}
-      </a>
-    </p>
+  <div id="switch-and-links">
+    <p-inputSwitch
+      [(ngModel)]="isRomanian"
+      (onChange)="toggleLanguage()"
+    ></p-inputSwitch>
+    <div id="horizontal-links">
+      <p>
+        <a (click)="scrollToSection('hero-image-section')">
+          {{ "home" | translate }}
+        </a>
+      </p>
+      <p>
+        <a (click)="scrollToSection('about-us-section')">
+          {{ "aboutUs" | translate }}
+        </a>
+      </p>
+      <p>
+        <a (click)="scrollToSection('menu-section')">
+          {{ "menu" | translate }}
+        </a>
+      </p>
+      <p>
+        <a (click)="scrollToSection('gallery-section')">
+          {{ "gallery" | translate }}
+        </a>
+      </p>
+    </div>
+    <p-button (click)="toggleSidebar()"><i class="pi pi-bars"></i></p-button>
   </div>
-  <p-button (click)="toggleSidebar()"><i class="pi pi-bars"></i></p-button>
 </div>
 
 <p-sidebar
