@@ -42,16 +42,26 @@
 >
   <div id="vertical-links">
     <p>
-      <a> {{ "home" | translate }} </a>
+      <a
+        (click)="scrollToSection('hero-image-section'); sidebarVisible = false"
+      >
+        {{ "home" | translate }}
+      </a>
     </p>
     <p>
-      <a> {{ "aboutUs" | translate }} </a>
+      <a (click)="scrollToSection('about-us-section'); sidebarVisible = false">
+        {{ "aboutUs" | translate }}
+      </a>
     </p>
     <p>
-      <a> {{ "menu" | translate }}</a>
+      <a (click)="scrollToSection('menu-section'); sidebarVisible = false">
+        {{ "menu" | translate }}</a
+      >
     </p>
     <p>
-      <a> {{ "gallery" | translate }} </a>
+      <a (click)="scrollToSection('gallery-section'); sidebarVisible = false">
+        {{ "gallery" | translate }}
+      </a>
     </p>
   </div>
 </p-sidebar>
